@@ -1,0 +1,35 @@
+﻿@using CTLtest1.Models
+@model IEnumerable<Order>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Upload</title>
+</head>
+<body>
+    <div>
+        <h1>Uploaded</h1>
+    </div>
+    <table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.FirstName
+                </td>
+                <td>
+                    @item.LastName
+                </td>
+            </tr>
+        }
+     </table>
+    <label>
+        Continue
+    </label>
+    <div>
+        <input type="button" title="Next" value="Next Step" onclick="location.href='@Url.Action("UploadAsync", "Upload", new { model = Model })'" />
+    </div>
+    </body>
+</html>
